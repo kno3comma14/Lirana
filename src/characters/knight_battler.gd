@@ -33,8 +33,16 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
+func verify_attackability(body: Node2D) -> bool:
+	var is_barrier: bool = "is_barrier" in body.get_meta_list() and body.get_meta("is_barrier")
+	var is_battler: bool = "is_battler" in body.get_meta_list() and body.get_meta("is_battler")
+	var is_totem: bool = "is_totem" in body.get_meta_list() and body.get_meta("is_totem")
+	
+	return is_barrier or is_battler
+
+
 func _on_fighting_area_body_entered(body: Node2D) -> void:
-	if body != self:
+	if body != self and verify_attackability(body):
 		speed = 0
 		if not body in targets:
 			targets.append(body)

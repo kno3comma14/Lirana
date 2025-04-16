@@ -12,6 +12,15 @@ size = Vector2(91, 850)
 
 [node name="Main" type="Node2D"]
 
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(965.5, 541)
+scale = Vector2(7.69141, 5.80208)
+texture = ExtResource("1_ufeoh")
+
+[node name="LiranaBattler" parent="." instance=ExtResource("3_smlgs")]
+position = Vector2(673, 381)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="LiranaInfo" parent="CanvasLayer" instance=ExtResource("1_118jn")]
@@ -37,21 +46,13 @@ grow_horizontal = 1
 scale = Vector2(2.2, 2.2)
 size_flags_vertical = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(965.5, 541)
-scale = Vector2(7.69141, 5.80208)
-texture = ExtResource("1_ufeoh")
-
-[node name="LiranaBattler" parent="." instance=ExtResource("3_smlgs")]
-position = Vector2(673, 381)
-
 [node name="KnightBattler" parent="." instance=ExtResource("6_3xv2u")]
 position = Vector2(1795, 192)
 scale = Vector2(6, 6)
 
 [node name="Barrier" type="StaticBody2D" parent="."]
 position = Vector2(604, 128)
+metadata/is_barrier = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier"]
 position = Vector2(35.5, 401)
